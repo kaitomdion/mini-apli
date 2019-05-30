@@ -1,7 +1,7 @@
 .contents.row
   = form_for(@comment, url:"/comments/#{@comment.id}", method: :patch)  do |f|
     %h3
-      編集
+      編集画面
     .field
     = f.text_area :text, style: 'height:200px'
     .field
