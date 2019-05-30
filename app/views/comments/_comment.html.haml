@@ -1,0 +1,8 @@
+- @comment.each do |comment|
+  .comment__main
+    %p.comment__main__text
+      = comment.text
+    - if user_signed_in? && current_user.id == comment.user_id
+      = link_to '削除', "/comments/#{comment.id}", method: :delete
+      = link_to '編集', "/comments/#{comment.id}/edit", method: :get
+= paginate(@comment)

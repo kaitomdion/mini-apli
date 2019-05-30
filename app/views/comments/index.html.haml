@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Sample
+    %style{:href => "./style.css", :type => "text/css"}
+    / Compiled and minified CSS
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css", :rel => "stylesheet"}/
+    / Compiled and minified JavaScript
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"}
+    %script{:crossorigin => "anonymous", :integrity => "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :src => "https://code.jquery.com/jquery-3.4.1.js"}
+  %body
+    %nav.light-green.accent-1
+      .nav-wrapper
+        %a.brand-logo.center{:href => ""} Mini-apli
+        %ul#nav-mobile.left.hide-on-med-and-down
+          - if user_signed_in?
+            %li= link_to "サインアウト", destroy_user_session_path, method: :delete
+            %li
+              %a{:href => "/comments/new"} 新規投稿
+          - else
+            %li
+              %a{:href => "/users/sign_in"} サインイン
+            %li
+              %a{:href => "/users/sign_up"} 新規登録
+    .comment
+      =render 'comment'
+    %script{:src => "./app.js", :type => "text/javascript"}

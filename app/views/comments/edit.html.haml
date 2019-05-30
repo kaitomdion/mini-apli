@@ -1,0 +1,11 @@
+.contents.row
+  = form_for(@comment, url:"/comments/#{@comment.id}", method: :patch)  do |f|
+    %h3
+      編集する
+    .field
+    = f.text_area :text, style: 'height:200px'
+    .field
+    = f.submit "投稿"
+
+
+    

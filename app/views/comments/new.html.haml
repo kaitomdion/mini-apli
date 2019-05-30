@@ -1,0 +1,10 @@
+.contents.row
+  = form_for(@comment, url:"/comments", method: :post)  do |f|
+    %h3
+      新規投稿
+    .field
+    = f.text_area :text, style: 'height:200px'
+    .field
+    = f.submit "投稿"
+
+    
